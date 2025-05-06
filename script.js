@@ -1,106 +1,157 @@
-// Lesson 5: JavaScript Methods (Strings, Arrays, and Numbers)
+// Lesson 7: JavaScript Loops
 
-// A method in JavaScript is a built-in function that you use with a specific type of data, like strings or arrays. It lets you do something with that data—like change it, check it, copy or access part of it.
-
-// --------------------------------------
-// Section 1: String Methods
-// --------------------------------------
-
-const text = "      Hello, JavaScript World! World   ";
-
-console.log(text.trim()); // removes whitespace from both ends of the string
-console.log(text.toUpperCase()); // converts the string to uppercase
-console.log(text.toLowerCase()); // converts the string to lowercase
-console.log(text.indexOf("JavaScript")); // returns the starting index of "JavaScript" in the string
-console.log(text.slice(6, 11)); // extracts characters from index 6 to 10. Does not alter the original string.
-console.log(text.replace("World", "Universe")); // replaces the first occurrence of "World" with "Universe"
-console.log(text.replaceAll("World", "Universe")); // replaces all occurrences
-console.log(text.trim().charCodeAt(3)); // returns the Unicode value of the character at index 3
-console.log(text.length); // returns the length of the string
-console.log(text.split(" ")); // splits the string into an array of substrings by spaces
-console.log(text.repeat(3)); // repeats the string 3 times
+// A loop is a way to repeat code without writing it multiple times.
 
 // --------------------------------------
-// Section 1.2: Converting a String to a Number
+// Section 1: Why We Use Loops
 // --------------------------------------
 
-let numericString = "123.45xyz";
+// const names = ["Tom", "Eric", "Jessica"];
 
-console.log(Number(numericString)); // converts entire string to a number; returns NaN if any part is invalid
-console.log(parseInt(numericString)); // parses as an integer until an invalid character; returns 123
-console.log(parseFloat(numericString)); // parses as a float until an invalid character; returns 123.45
+// Without a loop (repeating yourself)
 
-// --------------------------------------
-// Section 2: Array Methods
-// --------------------------------------
+// console.log(`Hei ${names[0]}`);
+// console.log(`Hei ${names[1]}`);
+// console.log(`Hei ${names[2]}`);
 
-const colors = ["Red", "Green", "Blue"];
+// Where to start - Where does the loop end - How does the loop incrament
+// for (let i = 0; i <= 50; i++) {
+//   console.log(`Hei ${names[i]}`);
+// }
 
-console.log(colors.length); // returns the number of elements in the array
-
-colors.push("Yellow");
-console.log(colors); // adds "Yellow" to the end and logs the updated array
-
-const lastColor = colors.pop();
-console.log(lastColor); // removes and returns the last element ("Yellow")
-console.log(colors); // logs the array after pop
-
-console.log(colors.join(" ")); // joins array elements into a string separated by " "
-
-console.log(colors.includes("Green")); // checks if "Green" is in the array; returns true or false
-
-const firstColor = colors.shift();
-console.log(firstColor); // removes and returns the first element ("Red")
-console.log(colors); // logs the array after shift
-
-colors.unshift("Purple");
-console.log(colors); // adds "Purple" at the beginning and logs the updated array
-
-// toSpliced(): Returns a new array with elements spliced in without modifying the original array
-console.log(colors);
-const newColors = colors.toSpliced(0, 1, "Orange", "Pink");
-console.log(newColors); // logs the new array with the spliced changes
-console.log(colors); // logs the original array (unchanged)
-
-let unsortedArray = [3, 1, 4, 1, 5, 9];
-
-let sortedArray = unsortedArray.toSorted(); // returns a new sorted array without modifying the original
-console.log(unsortedArray); // logs the original unsorted array
-console.log(sortedArray); // logs the new sorted array
-
-console.log(sortedArray.at(0)); // accesses the first element using a positive index
-console.log(sortedArray.at(-2)); // accesses the last element using a negative index
-
-const reversedArray = sortedArray.toReversed(); // returns a new array with elements in reverse order
-console.log(reversedArray); // logs the reversed array
+// DRY - Don't repeat yourself!
 
 // --------------------------------------
-// Section 3: Number Methods
-// --------------------------------------
-const myNum = 3.1415926;
-
-console.log(myNum.toFixed(2)); // returns a string representing myNum rounded to 2 decimal places
-console.log(myNum.toString()); // converts myNum to a string
-console.log(myNum.toExponential()); // returns a string with myNum in exponential notation
-
-// --------------------------------------
-// Section 4: Chaining Methods Together
+// Section 2: The for Loop
 // --------------------------------------
 
-// Example 1: Chaining String Methods
-const rawString = "   JavaScript is fun!   ";
-const processedString = rawString
-  .trim()
-  .replace("fun", "awesome")
-  .toUpperCase();
-console.log(processedString); // "JAVASCRIPT IS AWESOME!"
+// const fruits = ["Apple", "Banana", "Cherry", "Kiwi"];
 
-// Example 2: Chaining Array Methods
-const words = ["hello", "world"];
-const messageFromArray = words.join(" ").toUpperCase();
-console.log(messageFromArray); // "HELLO WORLD"
+// for (let i = fruits.length - 1; i >= 0; i--) {
+//   console.log(fruits[i]);
+// }
 
-// Example 3: Chaining with a Number (after converting to string)
-// Take a number, round it to 2 decimals, convert to a string, and repeat it twice
-const chainedNumber = myNum.toFixed(2).toString().repeat(2);
-console.log(chainedNumber); // e.g., "3.143.14"
+// --------------------------------------
+// Section 3: Combining Loops with Functions and Methods
+// --------------------------------------
+
+// Creating a function with a loop to greet names in an array
+// function greetEveryone(nameArray) {
+//   for (let i = 0; i < nameArray.length; i++) {
+//     const name =
+//       nameArray[0].trim().charAt(0).toUpperCase() +
+//       nameArray[0].trim().slice(1).toLowerCase();
+
+//     console.log(name);
+//   }
+// }
+
+// const people = ["alice", " BOB ", "charlie", "dEbBy"];
+// const people2 = ["     JoE   ", " BiLL      "];
+
+// greetEveryone(people2);
+
+// Creating a function with a loop to combine elements in an array to a string
+
+// function makeSentenceWithLoop(wordsArray) {
+//   let sentence = "";
+
+//   for (let i = 0; i < wordsArray.length; i++) {
+//     sentence += wordsArray[i];
+
+//     if (i < wordsArray.length - 1) {
+//       sentence += " ";
+//     }
+//   }
+
+//   return sentence + ".";
+// }
+
+// console.log(makeSentenceWithLoop(["Loops", "are", "really", "useful"]));
+
+// Some methods have an inbuilt loop!
+// function makeSentence(wordsArray) {
+//   return wordsArray.join(" ") + ".";
+// }
+
+// console.log(makeSentence(["Loops", "are", "really", "useful"]));
+
+// --------------------------------------
+// Section 4: The for...of Loop
+// --------------------------------------
+
+// const colors = ["red", "green", "blue"];
+
+// for (let color of colors) {
+//   console.log(color);
+// }
+
+// --------------------------------------
+// Section 5: The while Loop
+// --------------------------------------
+
+// let count = 1;
+
+// while (count <= 5) {
+//   console.log(`The current count is: ${count}`);
+//   count++;
+// }
+
+// Math.random() gives a number between 0.000000000000 - 0.999999999999
+// Math.floor() rounds down any number inside it's parentheses
+
+// We want a random number between 0-10
+// let randomNumber = Math.floor(Math.random() * 11);
+
+// console.log(randomNumber);
+
+// Guessing game with while loop
+
+// const secretNumber = Math.floor(Math.random() * 10) + 1;
+
+// let guess = 0;
+
+// while (guess !== secretNumber) {
+//   guess++;
+//   console.log(`Guessing ${guess}`);
+//   if (guess === secretNumber) {
+//     console.log(`Correct! The secret number was: ${guess}`);
+//   }
+// }
+
+// --------------------------------------
+// Section 6: Creating Arrays with Loops
+// --------------------------------------
+
+// function makeRandomArray(length, max) {
+//   const result = [];
+
+//   for (i = 0; i < length; i++) {
+//     const randomNumber = Math.floor(Math.random() * max) + 1;
+//     result.push(randomNumber);
+//   }
+
+//   return result;
+// }
+
+// console.log(makeRandomArray(10, 50));
+// console.log(makeRandomArray(20, 100));
+// console.log(makeRandomArray(5, 5));
+
+// --------------------------------------
+// Section 7: Finding the Biggest Number
+// --------------------------------------
+
+function findMax(numbers) {
+  let biggestNum = 0;
+  for (let number of numbers) {
+    if (number > biggestNum) {
+      biggestNum = number;
+    }
+  }
+  return biggestNum;
+}
+
+const numberArray = [5, 10, 45, 1, 42, 100, 50];
+
+console.log(findMax(numberArray));

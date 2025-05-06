@@ -130,16 +130,16 @@ const updateHP = (amount, direction) => {
   }
 };
 
-// updateHP(50, "up");
-// console.log("Player HP is:", HP);
-// updateHP(100, "down");
-// console.log("Player HP is:", HP);
-// updateHP(25, "down");
-// console.log("Player HP is:", HP);
-// updateHP(75, "up");
-// console.log("Player HP is:", HP);
-// updateHP(300, "down");
-// console.log("Player HP is:", HP);
+updateHP(50, "up");
+console.log("Player HP is:", HP);
+updateHP(100, "down");
+console.log("Player HP is:", HP);
+updateHP(25, "down");
+console.log("Player HP is:", HP);
+updateHP(75, "up");
+console.log("Player HP is:", HP);
+updateHP(300, "down");
+console.log("Player HP is:", HP);
 
 // ---------------------------------------------------
 // Section 8: Using Template Literals and Ternary Operator in a Function
