@@ -1,0 +1,20 @@
+.blue-text {
+  color: blue;
+}
+
+#bold-p {
+  font-weight: bold;
+}
+
+.small-img {
+  width: 100px;
+  height: 100px;
+}
+
+.list-item {
+  list-style-type: none;
+}
+
+.movie-item {
+  color: purple;
+}

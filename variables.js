@@ -50,10 +50,11 @@ console.log(exampleArray[0]);
 
 // Object (hold key value pairs)
 
-person = {
+let person = {
   name: "Simen",
   age: 37,
   location: "Oslo",
+  newsletter: true,
 };
 
 // console.log(person);
